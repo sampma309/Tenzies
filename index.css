@@ -2,3 +2,65 @@
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
 }
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.explanation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.explanation--title {
+    
+}
+
+.explanation--text {
+
+}
+
+.diceGrid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(5, 100px);
+    gap: 20px;
+    padding-top: 25px;
+}
+
+.dice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    border: 3px solid black;
+    height: 100px;
+    margin: 0;
+}
+
+.locked {
+    background-color: greenyellow;
+}
+
+.button--root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.roll-button {
+    margin: 25px;
+    background-color: skyblue;
+    color: #D32C85;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 15%;
+    letter-spacing: 0.05rem;
+}

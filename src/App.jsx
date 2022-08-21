@@ -31,7 +31,7 @@ export default function App() {
         key={die.id}
         id={die.id}
         value={die.value}
-        locked={die.locked ? "L" : "UL"}
+        locked={die.locked}
         toggleLocked={toggleLocked}
       />
     )
@@ -40,7 +40,9 @@ export default function App() {
   return (
     <div>
       <Header />
-      {diceElements}
+      <div className="diceGrid">
+        {diceElements}
+      </div>
       <RollButton 
         rollNewValues={rollNewValues}
       />

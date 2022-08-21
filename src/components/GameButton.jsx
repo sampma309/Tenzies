@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function RollButton(props) {
+export default function GameButton(props) {
     return (
         <div className="button--root">
             <button 

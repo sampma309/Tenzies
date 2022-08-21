@@ -54,20 +54,29 @@
     background-color: greenyellow;
 }
 
-.button--root {
+.buttons {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.roll-button {
-    margin: 25px;
-    background-color: skyblue;
-    color: black;
+.buttons > button {
     border: none;
     font-size: 24px;
     font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 15%;
     letter-spacing: 0.05rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.buttons--roll {
+    background-color: skyblue;
+    color: black;
+    margin: 25px;
+}
+
+.buttons--reset {
+    background-color: red;
+    color: black;
 }

@@ -8,10 +8,12 @@ export default function Timer(props) {
 
         let interval
         if (props.gameState === 1) {
-            console.log("game started")
             interval = setInterval(() => {
                 setTime(Date.now() - props.startTime)
             }, 100)
+        }
+        else if (props.gameState === 0) {
+            setTime(0)
         }
 
         return () => clearInterval(interval);
@@ -30,8 +32,8 @@ export default function Timer(props) {
 
     return (
         <div className="times">
-            <h2 className="times--current">{time / 1000}</h2>
-            <h2 className="times--best">{personalBest / 1000}</h2>
+            <h2 className="times--current">{(time / 1000).toFixed(3)}</h2>
+            <h2 className="times--best">{(personalBest / 1000).toFixed(3)}</h2>
         </div>
     )
 }

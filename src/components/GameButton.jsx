@@ -18,13 +18,22 @@ export default function GameButton(props) {
     }
 
     return (
-        <div className="button--root">
+        <div className="buttons">
             <button 
-                className="roll-button"
+                className="buttons--roll"
                 onClick={buttonFunction}
             >
                 {buttonText}
             </button>
+
+            {/* Reset button */}
+            {props.gameState === 1 &&
+            <button 
+                className="buttons--reset"
+                onClick={props.resetBoard}
+            >
+            Reset
+            </button>}
         </div>
 
     )

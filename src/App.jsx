@@ -25,8 +25,6 @@ export default function App() {
       ? {...die, locked: !die.locked}
       : {...die}
     }))
-    console.log(dice)
-
   }
 
   // End game if all dice are equal and locked
@@ -50,6 +48,13 @@ export default function App() {
       locked: false,
       value: Math.ceil(6 * Math.random())
     })))
+  }
+
+  function resetBoard() {
+    setGameState(0)
+    setDice(prevDice => prevDice.map(die => {
+      return {...die, locked: false}
+    }))
   }
   
   const diceElements = dice.map(die => {
@@ -79,6 +84,7 @@ export default function App() {
         gameState={gameState}
         rollNewValues={rollNewValues}
         startGame={startGame}
+        resetBoard={resetBoard}
       />
     </div>
   )

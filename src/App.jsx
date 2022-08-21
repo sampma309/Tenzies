@@ -27,6 +27,7 @@ export default function App() {
 
   }
 
+  // End game if all dice are equal and locked
   if (gameState !== 2) {
     let gameOverFlag = 1
     for (let i = 0; i < dice.length; i++) {

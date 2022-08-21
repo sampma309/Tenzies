@@ -6,8 +6,7 @@ import defaultDice from "../defaultDice.js"
 
 export default function App() {
 
-  const [dice, setDice] = React.useState(
-    () => JSON.parse(localStorage.getItem("dice")) || defaultDice)
+  const [dice, setDice] = React.useState(defaultDice)
 
   function rollNewValues() {
     setDice(prevDice => prevDice.map(die => {

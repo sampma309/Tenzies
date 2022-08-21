@@ -1,5 +1,5 @@
 import React from "react";
-import RollButton from "./components/RollButton";
+import GameButton from "./components/GameButton";
 import Header from "./components/Header";
 import Die from "./components/Die";
 import defaultDice from "../defaultDice.js"
@@ -7,6 +7,7 @@ import defaultDice from "../defaultDice.js"
 export default function App() {
 
   const [dice, setDice] = React.useState(defaultDice)
+  const [gameState, setGameState] = React.useState(0) // 0 = pre-game, 1 = in game, 2 = finished game
 
   function rollNewValues() {
     setDice(prevDice => prevDice.map(die => {
@@ -23,6 +24,11 @@ export default function App() {
       : {...die}
     }))
   }
+
+  function startGame() {
+    setGameState(1)
+    console.log("game started")
+  }
   
   const diceElements = dice.map(die => {
     return (
@@ -32,6 +38,7 @@ export default function App() {
         value={die.value}
         locked={die.locked}
         toggleLocked={toggleLocked}
+        gameState={gameState}
       />
     )
   })
@@ -42,8 +49,10 @@ export default function App() {
       <div className="diceGrid">
         {diceElements}
       </div>
-      <RollButton 
+      <GameButton 
+        gameState={gameState}
         rollNewValues={rollNewValues}
+        startGame={startGame}
       />
     </div>
   )

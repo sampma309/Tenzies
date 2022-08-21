@@ -25,6 +25,13 @@
 
 }
 
+.times {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
 .diceGrid {
     display: grid;
     justify-content: center;

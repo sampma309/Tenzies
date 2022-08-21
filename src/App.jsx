@@ -2,12 +2,14 @@ import React from "react";
 import GameButton from "./components/GameButton";
 import Header from "./components/Header";
 import Die from "./components/Die";
+import Timer from "./components/Timer";
 import defaultDice from "../defaultDice.js"
 
 export default function App() {
 
   const [dice, setDice] = React.useState(defaultDice)
   const [gameState, setGameState] = React.useState(0) // 0 = pre-game, 1 = in game, 2 = finished game
+  const [startTime, setStartTime] = React.useState(0)
 
   function rollNewValues() {
     setDice(prevDice => prevDice.map(die => {
@@ -42,6 +44,7 @@ export default function App() {
 
   function startGame() {
     setGameState(1)
+    setStartTime(Date.now())
     setDice(prevDice => prevDice.map(die => ({
       ...die,
       locked: false,
@@ -65,6 +68,10 @@ export default function App() {
   return (
     <div>
       <Header />
+      <Timer 
+        startTime={startTime}
+        gameState={gameState}
+      />
       <div className="diceGrid">
         {diceElements}
       </div>

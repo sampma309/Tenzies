@@ -2,6 +2,7 @@ import React from "react"
 
 export default function Die(props) {
 
+    // hide text if game hasn't started
     const styles = {fontSize: props.gameState === 0 ? "0rem" : "3rem"}
 
     return (
@@ -11,7 +12,7 @@ export default function Die(props) {
                 props.toggleLocked(props.id)}}
             style={styles}
         >
-            {props.value} {props.locked}
+            {props.value}
         </h1>
     )
 }

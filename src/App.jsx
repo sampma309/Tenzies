@@ -11,6 +11,7 @@ export default function App() {
   const [gameState, setGameState] = React.useState(0) // 0 = pre-game, 1 = in game, 2 = finished game
   const [startTime, setStartTime] = React.useState(0)
 
+
   function rollNewValues() {
     setDice(prevDice => prevDice.map(die => {
       return die.locked
@@ -19,6 +20,7 @@ export default function App() {
     }))
   }
 
+
   function toggleLocked(id) {
     setDice(prevDice => prevDice.map(die => {
       return die.id === id
@@ -26,6 +28,26 @@ export default function App() {
       : {...die}
     }))
   }
+
+
+  function startGame() {
+    setGameState(1)
+    setStartTime(Date.now())
+    setDice(prevDice => prevDice.map(die => ({
+      ...die,
+      locked: false,
+      value: Math.ceil(6 * Math.random())
+    })))
+  }
+
+
+  function resetBoard() {
+    setGameState(0)
+    setDice(prevDice => prevDice.map(die => {
+      return {...die, locked: false}
+    }))
+  }
+
 
   // End game if all dice are equal and locked
   if (gameState !== 2) {
@@ -40,22 +62,6 @@ export default function App() {
     }
   }
 
-  function startGame() {
-    setGameState(1)
-    setStartTime(Date.now())
-    setDice(prevDice => prevDice.map(die => ({
-      ...die,
-      locked: false,
-      value: Math.ceil(6 * Math.random())
-    })))
-  }
-
-  function resetBoard() {
-    setGameState(0)
-    setDice(prevDice => prevDice.map(die => {
-      return {...die, locked: false}
-    }))
-  }
   
   const diceElements = dice.map(die => {
     return (
@@ -69,6 +75,7 @@ export default function App() {
       />
     )
   })
+  
 
   return (
     <div>

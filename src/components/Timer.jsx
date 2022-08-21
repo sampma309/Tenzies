@@ -4,8 +4,8 @@ export default function Timer(props) {
 
     const [time, setTime] = React.useState(0)
 
+    // run timer
     React.useEffect(() => {
-
         let interval
         if (props.gameState === 1) {
             interval = setInterval(() => {

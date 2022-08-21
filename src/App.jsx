@@ -23,11 +23,29 @@ export default function App() {
       ? {...die, locked: !die.locked}
       : {...die}
     }))
+    console.log(dice)
+
+  }
+
+  if (gameState !== 2) {
+    let gameOverFlag = 1
+    for (let i = 0; i < dice.length; i++) {
+      if (dice[i].value !== dice[0].value || dice[i].locked !== true) {
+        gameOverFlag = 0
+      }
+    }
+    if (gameOverFlag === 1) {
+      setGameState(2)
+    }
   }
 
   function startGame() {
     setGameState(1)
-    console.log("game started")
+    setDice(prevDice => prevDice.map(die => ({
+      ...die,
+      locked: false,
+      value: Math.ceil(6 * Math.random())
+    })))
   }
   
   const diceElements = dice.map(die => {

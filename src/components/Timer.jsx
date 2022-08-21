@@ -32,8 +32,12 @@ export default function Timer(props) {
 
     return (
         <div className="times">
-            <h2 className="times--current">{(time / 1000).toFixed(3)}</h2>
+            <h2>Best Time</h2>
+            <h2>Time</h2>
+            <h2>Dev Time</h2>
             <h2 className="times--best">{(personalBest / 1000).toFixed(3)}</h2>
+            <h2 className="times--current">{(time / 1000).toFixed(3)}</h2>
+            <h2 className="times--best">5.998</h2>
         </div>
     )
 }

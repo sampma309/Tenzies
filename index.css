@@ -26,10 +26,19 @@
 }
 
 .times {
-    display: flex;
+    display: grid;
+    grid-template-columns: 150px 200px 150px;
     justify-content: space-between;
     padding-left: 200px;
     padding-right: 200px;
+}
+
+.times > h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 1.3rem;
 }
 
 .diceGrid {
